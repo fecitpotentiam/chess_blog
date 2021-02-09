@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+		<section class="pager-section blog-version" style="background-image: url({{ post.image.url }}">
+			<div class="container">
+				<div class="pager-content text-center">
+					<ul>
+						<li><a href="#" title="">Главная</a></li>
+						<li><a href="#" title="">Блог</a></li>
+						<li><span>{{ post.title}}</span></li>
+					</ul>
+					<h2>{{ post.title }}</h2>
+					<span class="categry"> {{ post.category }}</span>
+					<ul class="meta">
+						<li><a href="#" title="">{{ post.published_date}}</a></li>
+						<li><a href="#" title="">{{ post.author }}</a></li>
+					</ul>
+				</div><!--pager-content end-->
+			</div>
+		</section><!--pager-section end-->
+
+		<section class="page-content p80">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9">
+						<div class="blog-post single">
+                            <p>{{ post.text | safe}}</p>
+						</div><!--blog-post single end-->
+
+                        {% if comments %}
+                        {% include "comments.html" %}
+                        {% endif %}
+
+						<div class="mdp-contact">
+							<div class="comment-area">
+								<h3 class="mdp-sub-title">Добавить комментарий</h3>
+								<form action="{% url 'add_comment_to_post' pk=post.pk %}" method="post"> {% csrf_token %}
+									<div class="row">
+										<div class="col-lg-4">
+											<div class="form-group">
+                                                    <input type="text" name="author" placeholder="Имя">
+                                            </div><!--form-group end-->
+										</div>
+										<div class="col-lg-12">
+											<div class="form-group">
+                                                    <textarea name="text" placeholder="Введите текст комментария"></textarea>
+                                            </div><!--form-group end-->
+										</div>
+										<div class="col-lg-12">
+											<div class="form-submit">
+                                                <button type="submit" class="save btn btn-default">
+												 Отправить <i class="fa fa-long-arrow-alt-right"></i>
+                                                </button>
+											</div><!--form-submit end-->
+										</div>
+									</div>
+								</form>
+							</div><!--comment-area end-->
+						</div><!--mdp-contact end-->
+					</div>
+
+                    {% include "blog_right_menu.html" %}
+				</div>
+			</div>
+		</section>
+
+		<section class="newsletter-section">
+			<div class="container">
+				<div class="newsletter-sec">
+					<div class="row align-items-center">
+						<div class="col-lg-4">
+							<div class="newsz-ltr-text">
+								<h2>Join us <br /> and stay tuned!</h2>
+								<a href="contacts.html" title="" class="btn-default">Join Us <i class="fa fa-long-arrow-alt-right"></i></a>
+							</div><!--newsz-ltr-text end-->
+						</div>
+						<div class="col-lg-8">
+							<form class="newsletter-form">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<input type="text" name="name" placeholder="Name">
+										</div><!--form-group end-->
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<input type="email" name="email" placeholder="Email">
+										</div><!--form-group end-->
+									</div>
+									<div class="col-md-4">
+										<div class="form-group select-tg">
+											<select>
+												<option>Class</option>
+												<option>Class</option>
+												<option>Class</option>
+												<option>Class</option>
+												<option>Class</option>
+												<option>Class</option>
+											</select>
+										</div><!--form-group end-->
+									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+											<textarea name="message" placeholder="Message"></textarea>
+										</div><!--form-group end-->
+									</div>
+								</div>
+							</form><!--newsletter-form end-->
+						</div>
+					</div>
+				</div><!--newsletter-sec end-->
+			</div>
+		</section><!--newsletter-sec end-->
+
+{% endblock %}

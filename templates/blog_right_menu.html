@@ -1,0 +1,44 @@
+<div class="col-lg-3">
+    <div class="sidebar">
+        <div class="widget widget-categories">
+            <h3 class="widget-title">Рубрики</h3>
+            <ul>
+                {% for category in categories %}
+                    <li>
+                        <a href="{% url 'category_post_list' pk=category.pk %}" title="">{{ category.title }}</a>
+                        {#										<span>45</span>#}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div><!--widget-categories end-->
+        <div class="widget widget-posts">
+            <h3 class="widget-title">Последние записи</h3>
+            <div class="wd-posts">
+                {% for post in latest_posts %}
+                    <div class="wd-post d-flex flex-wrap">
+                        {#										<div class="wd-thumb">#}
+                        {#											<img src="https://via.placeholder.com/52x52" alt="">#}
+                        {#										</div>#}
+                        <div class="wd-info">
+                            <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                            <span>{{ post.published_date }}</span>
+                        </div>
+
+                    </div><!--wd-post end-->
+                {% endfor %}
+            </div><!--wd-posts end-->
+        </div><!--widget-posts end-->
+
+    {% if comments %}
+        <div class="widget widget-comments">
+            <h3 class="widget-title">Последние комментарии</h3>
+            <ul>
+                {% for comment in comments %}
+                    <li><a href="{% url 'post_detail' pk=comment.post.pk %}">{{ comment.author }}: {{ comment.text | truncatechars:20 }}</a></li>
+                {% endfor %}
+            </ul>
+        </div><!--widget-comments end-->
+    {% endif %}
+
+    </div><!--sidebar end-->
+</div>
