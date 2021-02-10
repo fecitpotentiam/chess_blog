@@ -36,19 +36,25 @@
 									<li>
 										<img src="{% static 'assets/img/Map-location.png' %}" alt="">
 										<div class="clt-info">
-											<h3>{{ event.address }}</h3>
+                                            <h3><span>Место:</span>{{ event.address }}</h3>
 										</div>
 									</li>
 									<li>
 										<img src="{% static 'assets/img/Calendar.png'%}" alt="">
 										<div class="clt-info">
-											<h3>{{ event.datetime |date:"D d M Y" }} <span>{{ event.datetime |date:"H:i" }}</span></h3>
+                                            <h3><span>Дата:</span>{{ event.datetime |date:"D d M Y" }} {{ event.datetime |date:"H:i" }}</h3>
+										</div>
+									</li>
+                                    <li>
+										<img src="{% static 'assets/img/Timer.png'%}" alt="">
+										<div class="clt-info">
+                                            <h3><span>Дедлайн подачи:</span> {{ event.deadline |date:"D d M Y" }} {{ event.deadline |date:"H:i" }}</h3>
 										</div>
 									</li>
                                     <li>
 										<img src="{% static 'assets/img/Wallet.png'%}" alt="">
 										<div class="clt-info">
-											<h3>Взнос: {{ event.payment }}</h3>
+											<h3><span>Взнос: </span>{{ event.payment }}</h3>
 										</div>
 									</li>
 								</ul>
@@ -56,7 +62,7 @@
 									<div class="tech-tble">
 										<img src="{% static 'assets/img/User.png'%}" alt="">
 										<div class="tch-info">
-											<h3>Организатор</h3>
+                                            <h3>Организатор</h3>
 											<span>{{ event.organizer}}</span>
 										</div>
 									</div>

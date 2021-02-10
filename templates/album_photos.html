@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="pager-section">
+			<div class="container">
+				<div class="pager-content text-center">
+					<h2>{{ album_name }}</h2>
+					<ul>
+						<li><a href="/" title="">Домашняя страница</a></li>
+                        <li><a href="/albums"><span>Фотоальбомы</span></a></li>
+						<li><span>{{ album_name }}</span></li>
+					</ul>
+				</div><!--pager-content end-->
+				<h2 class="page-titlee">{{ album_name }} </h2>
+			</div>
+		</section><!--pager-section end-->
+
+    <div class="gallery" id="gallery">
+        {% for photo in photos %}
+
+        <div class="gallery-item">
+            <div class="content">
+                <img src="{{ photo.image.url }}" alt="">
+            </div>
+        </div>
+        {% endfor %}
+
+{#        #}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,studied" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,substance" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,choose" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,past" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,lamp" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,yet" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,eight" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,crew" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,event" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,instrument" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,practical" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,pass" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,bigger" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,number" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,feature" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,line" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,railroad" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,pride" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,too" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,bottle" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,base" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,cell" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,bag" alt=""></div>#}
+{#        </div>#}
+{#        <div class="gallery-item">#}
+{#            <div class="content"><img src="https://source.unsplash.com/random/?tech,card" alt=""></div>#}
+{#        </div>#}
+    </div>
+
+{% endblock %}

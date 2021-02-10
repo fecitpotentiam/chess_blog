@@ -213,7 +213,7 @@ p {
     font-size: 18.29px;
     font-weight: 500;
     font-family: Poppins, sans-serif;
-    background-color: #135e9e;
+    background-color: #f9c4aa;
     height: 40px;
     line-height: 40px;
     padding: 0 60px;
@@ -235,7 +235,7 @@ p {
     line-height: 28px;
     text-align: center;
     border-radius: 50px;
-    color: #155799;
+    color: #f9c4aa;
     position: absolute;
     top: 50%;
     transition: all 0.4s ease-in-out;
@@ -339,7 +339,7 @@ header .navigation-bar nav ul li a {
     position: relative;
 }
 header .navigation-bar nav ul li a:hover {
-    color: #1260a0;
+    color: #f9c4aa;
 }
 header .navigation-bar nav ul li a:before {
     content: "";
@@ -348,7 +348,7 @@ header .navigation-bar nav ul li a:before {
     left: 0;
     width: 0;
     height: 4px;
-    background-color: #156788;
+    background-color: #f9c4aa;
     border-radius: 10px;
     opacity: 0;
     visibility: hidden;
@@ -807,7 +807,7 @@ header .navigation-bar nav ul ul ul {
 }
 .course-section .courses-list .course-card .course-meta + span {
     display: inline-block;
-    color: #155799;
+    color: #f9c4aa;
     font-size: 18px;
     margin-left: auto;
     font-weight: 700;
@@ -891,7 +891,7 @@ header .navigation-bar nav ul ul ul {
     font-size: 14.23px;
     height: 24px;
     line-height: 24px;
-    background-color: #ffd31d;
+    background-color: #fdde95;
     border-radius: 30px;
 }
 .blog-section .blog-posts .blog-post:hover .blog-thumbnail:before {
@@ -942,7 +942,7 @@ header .navigation-bar nav ul ul ul {
     margin-right: 6px;
 }
 .newsletter-section .newsletter-sec {
-    background: linear-gradient(90deg, #fff5d7, #fdc1a4);
+    background: linear-gradient(90deg, #f7f4e3, #f9c4aa);
     background-repeat: no-repeat;
     padding: 57px 100px 55px;
     border-radius: 40px;
@@ -994,7 +994,7 @@ header .navigation-bar nav ul ul ul {
 .newsletter-section .newsletter-sec .newsletter-form .form-group input,
 .newsletter-section .newsletter-sec .newsletter-form .form-group select {
     width: 100%;
-    background-color: #fddead;
+    background-color: #f7f4e3;
     height: 40px;
     line-height: 40px;
     color: #575757;
@@ -1013,7 +1013,7 @@ header .navigation-bar nav ul ul ul {
 .newsletter-section .newsletter-sec .newsletter-form .form-group textarea {
     color: #575757;
     font-size: 14.23px;
-    background-color: #fddead;
+    background-color: #f7f4e3;
     height: 70px;
     width: 100%;
     border-radius: 20px;
@@ -1201,10 +1201,10 @@ footer .bottom-footer .social-links {
     font-size: 14.23px;
 }
 .pager-section .page-titlee {
-    color: #f37335;
+    color: #d2e1c8;
+    opacity: 0.7;
     font-size: 162.6px;
     font-weight: 600;
-    opacity: 0.1;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1792,7 +1792,7 @@ footer .bottom-footer .social-links {
     font-size: 18.29px;
 }
 .sidebar .widget-categories ul li a:hover {
-    color: #f37335;
+    color: #f9c4aa;
 }
 .sidebar .widget-categories ul li span {
     margin-left: auto;
@@ -1848,7 +1848,7 @@ footer .bottom-footer .social-links {
     left: 0;
     width: 17px;
     height: 15px;
-    background-image: url(../img/icon18.png);
+    background-image: url(../img/Comment_small.png);
     background-repeat: no-repeat;
 }
 .sidebar .widget-comments ul li a {
@@ -2833,7 +2833,7 @@ footer .bottom-footer .social-links {
 }
 .clt li .clt-info h3 span {
     display: block;
-    color: #155799;
+    color: #bad0ac;
     font-size: 18px;
     font-weight: 500;
     margin-top: 5px;
