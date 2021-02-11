@@ -7,7 +7,7 @@
                 <div class="col-md-10 ftco-animate">
                     <p class="breadcrumbs"><span class="mr-2"><a href="/">Главная</a></span> <span>Анонсы</span>
                     </p>
-                    <h1 class="bread">Анонсы</h1>
+                    <h1 class="bread">Видеоуроки</h1>
                 </div>
             </div>
         </div>
@@ -19,30 +19,69 @@
                 <div class="col-md-10">
                     <div class="row mb-lg-5">
 
-                        {% for event in events %}
-                            <div class="col-md-4 d-flex ftco-animate">
+
+                                                    <div class="col-md-6 d-flex ftco-animate">
                                 <div class="media block-6 services d-block">
                                     <div class="media-body p-2 mt-3">
-                                        <a href="{% url 'event_detail' pk=event.pk %}">
-                                            <h3 class="heading">{{ event.title | truncatechars:50 }}</h3>
-                                            <p>
-                                        <span class="event-icon">
-                                        <img src="{% static '/images/icons/Calendar_small.png' %}" alt="">
-                                        </span>
-                                                {{ event.datetime }}</p>
-                                            <p>
-                                                <span class="event-icon">
-                                        <img src="{% static '/images/icons/Location.png' %}" alt="">
-                                        </span>
-                                                {{ event.address | truncatechars:45 }}</p>
-
-                                        </a>
+                                        <div class="video-block">
+                                        <h2> Шахматная композиция </h2>
+                                    <div class="video-container">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/RdGLkf2Ylu8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                        <p> В уроке дается краткое объяснение, что такое шахматная композиция </p>
                                     </div>
                                 </div>
+                                </div>
                             </div>
-                        {% endfor %}
+
+                                                    <div class="col-md-6 d-flex ftco-animate">
+                                <div class="media block-6 services d-block">
+                                    <div class="media-body p-2 mt-3">
+                                        <div class="video-block">
+                                        <h2> Шахматная композиция </h2>
+                                    <div class="video-container">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/RdGLkf2Ylu8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                        <p> В уроке дается краткое объяснение, что такое шахматная композиция </p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                                                                            <div class="col-md-6 d-flex ftco-animate">
+                                <div class="media block-6 services d-block">
+                                    <div class="media-body p-2 mt-3">
+                                        <div class="video-block">
+                                        <h2> Шахматная композиция </h2>
+                                    <div class="video-container">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/RdGLkf2Ylu8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                        <p> В уроке дается краткое объяснение, что такое шахматная композиция </p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                                                    <div class="col-md-6 d-flex ftco-animate">
+                                <div class="media block-6 services d-block">
+                                    <div class="media-body p-2 mt-3">
+                                        <div class="video-block">
+                                        <h2> Шахматная композиция </h2>
+                                    <div class="video-container">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/RdGLkf2Ylu8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                        <p> В уроке дается краткое объяснение, что такое шахматная композиция </p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
 
                     </div>
+
+
+
+
 
                     {#                Pagination Block#}
 

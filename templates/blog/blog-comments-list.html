@@ -1,0 +1,13 @@
+{% block content %}
+    <ul class="comment-list">
+        {% for comment in comments %}
+            <li class="comment">
+                <div class="comment-body">
+                    <h3>{{ comment.author }}</h3>
+                    <div class="meta">{{ comment.created_date }}</div>
+                    <p>{{ comment.text }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

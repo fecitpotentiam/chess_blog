@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="ftco-section ftco-bread ftco-extend-mb">
+        <div class="container-fluid px-3 px-md-0">
+            <div class="row no-gutters slider-text justify-content-end align-items-center">
+                <div class="col-md-10 ftco-animate">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Главная</a></span>
+                        <span>{{ page_title }}</span></p>
+                    <h1 class="bread">{{ page_title }}</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pt">
+        <div class="container-fluid px-3 px-md-0">
+            <div class="row justify-content-end">
+                <div class="col-md-10">
+                    <div class="row d-flex">
+                        <div class="col-lg-8">
+                            <div class="row">
+
+                                {% for post in posts %}
+
+                                    <div class="col-md-12">
+                                        <div class="blog-entry ftco-animate">
+                                            <a href="{% url 'post_detail' pk=post.pk %}"
+                                               class="img img-2"
+                                               style="background-image: url({{ post.image.url }}"></a>
+                                            <div class="text pt-3">
+                                                <h3 class="mb-2"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                                                <div class="meta-wrap">
+                                                    <p class="meta">
+                                                        <span>{{ post.published_date }}</span>
+                                                        <span><a
+                                                                href="{% url 'category_post_list' pk=post.category.pk %}">{{ post.category }}</a></span>
+                                                    </p>
+                                                </div>
+                                                <p><a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary"> Читать <span
+                                                        class="ion-ios-arrow-forward"></span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                {% endfor %}
+                            </div><!-- END-->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="block-27">
+                                        <ul>
+                                            <li><a href="#">&lt;</a></li>
+                                            <li class="active"><span>1</span></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">&gt;</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% include "blog/blog-sidebar.html" %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

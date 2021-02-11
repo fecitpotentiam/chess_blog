@@ -6,9 +6,13 @@ from .models import Post, Category, Event, Comment, PhotoAlbum, Photo
 from .forms import CommentForm
 
 
+def index(request):
+    return render(request, 'about.html')
+
+
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, 'blog.html',
+    return render(request, 'blog/blog.html',
                   {
                       'page_title': 'Блог',
                       'posts': posts,
@@ -18,7 +22,7 @@ def post_list(request):
 def category_post_list(request, pk):
     posts = Post.objects.filter(category__pk=pk).order_by('-published_date')
     category = get_object_or_404(Category, pk=pk)
-    return render(request, 'blog.html',
+    return render(request, 'blog/blog.html',
                   {
                       'page_title': category.title,
                       'posts': posts,
@@ -28,8 +32,7 @@ def category_post_list(request, pk):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     comments = Comment.objects.filter(post__pk=pk).order_by('-created_date')
-    print(comments)
-    return render(request, 'post.html', {'post': post, 'comments': comments})
+    return render(request, 'blog/blog-single.html', {'post': post, 'comments': comments})
 
 
 def events_list(request):
@@ -40,7 +43,7 @@ def events_list(request):
 
 def event_detail(request, pk):
     event = get_object_or_404(Event, pk=pk)
-    return render(request, 'event_single.html', {'event': event})
+    return render(request, 'event-single.html', {'event': event})
 
 
 def add_comment_to_post(request, pk):
@@ -60,13 +63,13 @@ def add_comment_to_post(request, pk):
 
 def get_albums(request):
     albums = PhotoAlbum.objects.all().order_by('-created_date')
-    return render(request, 'albums.html', {'albums': albums})
+    return render(request, 'gallery.html', {'albums': albums})
 
 
 def get_photos_in_album(request, pk):
     photos = Photo.objects.filter(album__pk=pk).order_by('-created_date')
-    album_name = photos[0].album
-    return render(request, 'album_photos.html', {'photos': photos, 'album_name': album_name})
+    album_name = photos[0].album if photos else "Пустой альбом"
+    return render(request, 'album.html', {'photos': photos, 'album_name': album_name})
 
 
 def youtube_videos(request):

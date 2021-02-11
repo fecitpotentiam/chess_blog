@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-			
-			<section class="ftco-section ftco-bread ftco-extend-mb">
-				<div class="container-fluid px-3 px-md-0">
-					<div class="row no-gutters slider-text justify-content-end align-items-center">
-	          <div class="col-md-10 ftco-animate">
-	            <p class="breadcrumbs"><span class="mr-2"><a href="/">Главная</a></span> <span>Фотоальбомы</span></p>
-	            <h1 class="bread">Фотоальбомы</h1>
-	          </div>
-	        </div>
-				</div>
-			</section>
+
+    <section class="ftco-section ftco-bread ftco-extend-mb">
+        <div class="container-fluid px-3 px-md-0">
+            <div class="row no-gutters slider-text justify-content-end align-items-center">
+                <div class="col-md-10 ftco-animate">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Главная</a></span> <span>Фотоальбомы</span>
+                    </p>
+                    <h1 class="bread">Фотоальбомы</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="ftco-services ftco-section ftco-no-pt">
         <div class="container-fluid px-3 px-md-0">
@@ -20,36 +21,37 @@
                     <div class="row mb-lg-5">
 
                         {% for album in albums %}
-						<div class="col-md-4 project ftco-animate">
-                        <div class="text text-2 text-center">
-									<h2><a href="#">{{ album.title }}</a></h2>
-								</div>
-							<div class="img js-fullheight" style="background-image: url({{ album.cover.url }})">
+                            <div class="col-md-4 project ftco-animate">
+                                <div class="text text-2 text-center">
+                                    <h2>{{ album.title }}</h2>
+                                </div>
+                                <a href="{% url 'get_photos_in_album' pk=album.pk %}">
+                                    <div class="img js-fullheight" style="background-image: url({{ album.cover.url }})">
 
-							</div>
-						</div>
+                                    </div>
+                                </a>
+                            </div>
                         {% endfor %}
+                    </div>
 
-					</div>
-
-					<div class="row">
-	          <div class="col">
-	            <div class="block-27 text-center">
-	              <ul>
-	                <li><a href="#">&lt;</a></li>
-	                <li class="active"><span>1</span></li>
-	                <li><a href="#">2</a></li>
-	                <li><a href="#">3</a></li>
-	                <li><a href="#">4</a></li>
-	                <li><a href="#">5</a></li>
-	                <li><a href="#">&gt;</a></li>
-	              </ul>
-	            </div>
-	          </div>
-	        </div>
-				</div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="block-27 text-center">
+                                <ul>
+                                    <li><a href="#">&lt;</a></li>
+                                    <li class="active"><span>1</span></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&gt;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-			</section>
+    </section>
 
-            {% endblock %}
+{% endblock %}

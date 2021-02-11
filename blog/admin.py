@@ -3,7 +3,9 @@ from django.contrib import admin
 # Register your models here.
 
 from django.contrib import admin
-from .models import Post, Category, Event, Comment, Photo, PhotoAlbum
+from django.contrib.admin.options import InlineModelAdmin
+
+from .models import Post, Category, Event, Comment, Photo, PhotoAlbum, PostImage
 
 
 class PhotoAdmin(admin.ModelAdmin):
@@ -19,9 +21,23 @@ class PhotoAlbumAdmin(admin.ModelAdmin):
   inlines = [PhotoInline,]
 
 
+# class PostImageAdmin(InlineModelAdmin):
+#     model = PostImage
+#
+#
+# class PostImageInline(admin.StackedInline):
+#   model = PostImage
+#   extra = 0
+#
+#
+# class PostAdmin(admin.ModelAdmin):
+#   inlines = [PostImageAdmin,]
+
+
 admin.site.register(Post)
 admin.site.register(Category)
 admin.site.register(Event)
 admin.site.register(Comment)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(PhotoAlbum, PhotoAlbumAdmin)
+# admin.site.register(Post, PostAdmin)

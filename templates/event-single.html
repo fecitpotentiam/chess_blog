@@ -1,10 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section class="ftco-section ftco-bread ftco-extend-mb">
+        <div class="container-fluid px-3 px-md-0">
+            <div class="row no-gutters slider-text justify-content-end align-items-center">
+                <div class="col-md-10 ftco-animate">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Главная</a></span> <span>Анонсы</span>
+                    </p>
+                    <h1 class="bread">{{ event.title }}</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <div class="container-fluid px-3 px-md-0">
+        <div class="row justify-content-end">
+            <div class="col-md-10">
+                <div class="row mb-lg-5">
+
+                    <div class="col-md-7 d-flex ftco-animate">
+
+                        <p> {{ event.description }} </p>
+                    </div>
+
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="event-single-details">
+                            <p>
+                                        <span class="event-icon">
+                                        <img src="{% static '/images/icons/Calendar_small.png' %}" alt="">
+                                        </span>
+                                {{ event.datetime }}</p>
+                            <p>
+                                                <span class="event-icon">
+                                        <img src="{% static '/images/icons/Location.png' %}" alt="">
+                                        </span>
+                                {{ event.address }}</p>
+                            <p>
+                                                <span class="event-icon">
+                                        <img src="{% static '/images/icons/Wallet.png' %}" alt="">
+                                        </span>
+                                Взнос: {{ event.payment }}</p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

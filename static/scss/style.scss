@@ -1,8 +1,8 @@
 @import 'bootstrap/bootstrap';
 @import 'bootstrap/variables';
 
-$font-primary: 'Poppins',Arial, sans-serif;
-$font-secondary: 'Montserrat',Arial, sans-serif;
+$font-primary: 'Montserrat', sans-serif;
+$font-secondary: 'Roboto', sans-serif;
 
 $white: #fff;
 $black: #000000;
@@ -40,7 +40,7 @@ html {
 }
 body {
 	font-family: $font-primary;
-	background: #dddddd;
+	background: white;
 	font-size: 16px;
 	line-height: 1.8;
 	font-weight: 400;
@@ -1149,7 +1149,7 @@ textarea.form-control {
 }
 
 .ftco-extend-mb{
-	margin-bottom: 8em;
+	margin-bottom: 5em;
 }
 
 .ftco-no-pt{

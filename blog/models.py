@@ -53,8 +53,18 @@ class Post(models.Model):
         verbose_name_plural = "Записи в блоге"
 
 
+class PostImage(models.Model):
+    image = models.ImageField(upload_to='media')  # здесь укажите куда сохранять изображения
+    post = models.ForeignKey(Post, related_name="post_image", on_delete=models.CASCADE)
+    created_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        verbose_name = 'Фото для поста'
+        verbose_name_plural = 'Фото для постов'
+
+
 class Event(models.Model):
-    title = models.CharField(max_length=200, verbose_name='Название')
+    title = models.CharField(max_length=100, verbose_name='Название')
     description = tinymce_models.HTMLField(verbose_name='Описание')
     address = models.CharField(max_length=300, verbose_name="Место проведения", blank=True)
     datetime = models.DateTimeField(blank=True, null=True, verbose_name='Дата и время мероприятия')
@@ -104,5 +114,5 @@ class Photo(models.Model):
   created_date = models.DateTimeField(default=timezone.now)
 
   class Meta:
-      verbose_name = 'Фото'
-      verbose_name_plural = 'Фото'
+      verbose_name = 'Фото из альбома'
+      verbose_name_plural = 'Фото из альбома'

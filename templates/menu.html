@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<aside id="colorlib-aside" role="complementary" class="js-fullheight">
+    <nav id="colorlib-main-menu" role="navigation">
+        <ul>
+            <li class="{% if request.resolver_match.url_name == "index" %}colorlib-active{% endif %}"><a href="/">Главная</a></li>
+            <li class="{% if "post" in request.resolver_match.url_name %}colorlib-active{% endif %}"><a href="/blog">Блог</a></li>
+            <li class="{% if "event" in request.resolver_match.url_name %}colorlib-active{% endif %}"><a href="/events">Анонсы</a></li>
+            <li class="{% if "album" in request.resolver_match.url_name %}colorlib-active{% endif %}"><a href="/albums">Галерея</a></li>
+            <li class="{% if "youtube" in request.resolver_match.url_name %}colorlib-active{% endif %}"><a href="/videolessons">Видеоуроки</a></li>
+        </ul>
+        <p class="social">
+            <span><a href="#">Facebook</a></span>
+            <span><a href="#">Twitter</a></span>
+            <span><a href="#">Instagram</a></span>
+        </p>
+    </nav>
+
+    <div class="colorlib-footer">
+        <h1 id="colorlib-logo"><a href="/">ML</a></h1>
+    </div>
+</aside> <!-- END COLORLIB-ASIDE -->

@@ -137,6 +137,7 @@ MEDIA_URL = '/media/'
 # STATIC_URL = '/static/'
 # STATICFILES_DIRS = (os.path.join('static'),)
 
+
 TINYMCE_JS_URL = 'tinymce/tinymce.min.js'
 TINYMCE_DEFAULT_CONFIG = {
     "height": "320px",

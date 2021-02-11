@@ -4,6 +4,14 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+@font-face{
+    font-family: 'TT Norms';
+    src: url('../fonts/tt-norms/TTNorms-Thin.ttf') format('truetype');
+    font-weight: normal; /
+    font-style: normal;
+}
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -31,8 +39,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  --font-family-sans-serif: "TT Norms";}
 
 *,
 *::before,
@@ -41,7 +48,7 @@
   box-sizing: border-box; }
 
 html {
-  font-family: sans-serif;
+  font-family: "TT Norms", sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -56,7 +63,7 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 
 body {
   margin: 0;
-  font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "TT Norms";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -7283,8 +7290,9 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #dee2e6 !important; } }
 
 body {
-  font-family: "Poppins", Arial, sans-serif;
-  background: #dddddd;
+  font-family: "Montserrat", sans-serif;
+  /*background: #dddddd;*/
+  background: white;
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
@@ -7392,7 +7400,7 @@ h1, h2, h3, h4, h5,
         text-decoration: none;
         position: relative;
         padding: 10px 0;
-        font-family: "Poppins", Arial, sans-serif;
+        font-family: 'Bebas Neue';
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
         -webkit-transition: all 0.3s ease;
@@ -7821,10 +7829,12 @@ h1, h2, h3, h4, h5,
     font-weight: 600;
     color: #000000;
     margin-bottom: 0;
-    font-size: 8vw;
+    font-size: 6vw;
     display: inline-block;
+    font-family: 'Bebas Neue', Sans-serif;
     position: relative;
-    line-height: 1; }
+    line-height: 1;
+    margin-top: 0.2em;}
     .ftco-bread .bread:after {
       position: absolute;
       bottom: 0;
@@ -7886,7 +7896,7 @@ h1, h2, h3, h4, h5,
   font-size: 40px;
   color: #000000;
   width: 50%;
-  font-family: "Montserrat", Arial, sans-serif; }
+  font-family: "Montserrat", sans-serif; }
 
 .ftco-counter .text span {
   width: 50%;
@@ -7902,7 +7912,7 @@ h1, h2, h3, h4, h5,
 .project {
   position: relative;
   width: 100%;
-  margin-bottom: 14em; }
+  margin-bottom: 7em; }
   .project .img {
     position: relative; }
     .project .img .text {
@@ -7913,20 +7923,19 @@ h1, h2, h3, h4, h5,
       left: 0;
       right: 0;
       margin-top: -4vw; }
-      .project .img .text h2 {
+      .project .text h2 {
         text-transform: uppercase;
-        font-size: 8vw;
-        font-weight: 600;
-        line-height: 1;
+        font-size: 3vw;
+        font-weight: 400;
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
         -webkit-transition: all 0.3s ease;
         -ms-transition: all 0.3s ease;
         transition: all 0.3s ease; }
-        .project .img .text h2 a {
+        .project .text h2 a {
           color: #000000; }
-      .project .img .text:hover h2 a, .project .img .text:focus h2 a {
-        color: #fff; }
+      .project .text:hover h2 a, .project .text:focus h2 a {
+        color: #ccb78f;; }
 
 .btn-custom-2 {
   font-size: 7vw;
@@ -7951,6 +7960,7 @@ h1, h2, h3, h4, h5,
       font-weight: 500;
       font-size: 40px; }
       .blog-entry .text h3 a {
+        font-family: 'Bebas Neue';
         color: #000000; }
     .blog-entry .text .meta-wrap {
       width: 100%;
@@ -8019,7 +8029,7 @@ textarea.form-control {
   padding: 0; }
 
 .ftco-extend-mb {
-  margin-bottom: 8em; }
+  margin-bottom: 5em; }
 
 .ftco-no-pt {
   padding-top: 0; }
@@ -8329,7 +8339,7 @@ textarea.form-control {
         width: 50px;
         border-radius: 50%; }
     .comment-list li .comment-body {
-      float: right;
+      /*float: right;*/
       width: calc(100% - 80px); }
       .comment-list li .comment-body h3 {
         font-size: 20px; }
@@ -8428,6 +8438,54 @@ textarea.form-control {
   .subscribe-form .form-group .form-control {
     bordeR: 1px solid rgba(255, 255, 255, 0.2);
     font-weight: 500; }
+    .subscribe-form .form-group input {
+    background: transparent !important;
+    border: 1px solid transparent;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 16px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0; }
+    .subscribe-form .form-group input::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: rgba(255, 255, 255, 0.7) !important; }
+    .subscribe-form .form-group input::-moz-placeholder {
+      /* Firefox 19+ */
+      color: rgba(255, 255, 255, 0.7) !important; }
+    .subscribe-form .form-group input:-ms-input-placeholder {
+      /* IE 10+ */
+      color: rgba(255, 255, 255, 0.7) !important; }
+    .subscribe-form .form-group input:-moz-placeholder {
+      /* Firefox 18- */
+      color: rgba(255, 255, 255, 0.7) !important; }
+
+    .subscribe-form .form-group textarea {
+    background: transparent !important;
+    border: 1px solid transparent;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 16px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0; }
+    .subscribe-form .form-group textarea::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: rgba(255, 255, 255, 0.7) !important; }
+    .subscribe-form .form-group textarea::-moz-placeholder {
+      /* Firefox 19+ */
+      color: rgba(255, 255, 255, 0.7) !important; }
+    .subscribe-form .form-group textarea:-ms-input-placeholder {
+      /* IE 10+ */
+      color: rgba(255, 255, 255, 0.7) !important; }
+    .subscribe-form .form-group textarea:-moz-placeholder {
+      /* Firefox 18- */
+      color: rgba(255, 255, 255, 0.7) !important; }
+
+
+  .subscribe-form .form-group .form-control {
+    bordeR: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 500; }
   .subscribe-form .form-group .submit {
     color: #000000 !important;
     display: block;
@@ -8456,10 +8514,12 @@ textarea.form-control {
   padding: 25px;
   font-size: 15px;
   width: 100%; }
-  .sidebar-box h3.sidebar-heading {
-    font-size: 24px;
+.sidebar-box h3.sidebar-heading {
+    font-size: 28px;
     margin-bottom: 30px;
-    font-weight: 600; }
+    font-weight: 600;
+    font-family: 'Bebas Neue';}
+
   @media (max-width: 767.98px) {
     .sidebar-box {
       padding: 0; } }
@@ -8577,3 +8637,88 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+.event-icon {
+  margin-right: 0.5em;
+}
+
+.event-single-details p {
+  color: #ccb78f;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+
+.video-container iframe {
+ position: absolute;
+ top:0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-block p{
+  margin-top: 2rem;
+}
+
+.video-block h2{
+  margin-bottom: 2rem;
+}
+
+
+.photo-gallery {
+  color:#313437;
+  background-color:#fff;
+}
+
+.photo-gallery p {
+  color:#7d8285;
+}
+
+.photo-gallery h2 {
+  font-weight:bold;
+  margin-bottom:40px;
+  padding-top:40px;
+  color:inherit;
+}
+
+@media (max-width:767px) {
+  .photo-gallery h2 {
+    margin-bottom:25px;
+    padding-top:25px;
+    font-size:24px;
+  }
+}
+
+.photo-gallery .intro {
+  font-size:16px;
+  max-width:500px;
+  margin:0 auto 40px;
+}
+
+.photo-gallery .intro p {
+  margin-bottom:0;
+}
+
+.photo-gallery .photos {
+  padding-bottom:20px;
+}
+
+.photo-gallery .item {
+  padding-bottom:30px;
+}
+
