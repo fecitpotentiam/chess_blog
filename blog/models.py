@@ -19,7 +19,6 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = tinymce_models.HTMLField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -109,7 +108,7 @@ class PhotoAlbum(models.Model):
 
 
 class Photo(models.Model):
-  image = models.ImageField(upload_to='media') # здесь укажите куда сохранять изображения
+  image = models.ImageField(upload_to='media')
   album = models.ForeignKey(PhotoAlbum, related_name="photo", on_delete=models.CASCADE)
   created_date = models.DateTimeField(default=timezone.now)
 

@@ -21,23 +21,23 @@ class PhotoAlbumAdmin(admin.ModelAdmin):
   inlines = [PhotoInline,]
 
 
-# class PostImageAdmin(InlineModelAdmin):
-#     model = PostImage
-#
-#
-# class PostImageInline(admin.StackedInline):
-#   model = PostImage
-#   extra = 0
-#
-#
-# class PostAdmin(admin.ModelAdmin):
-#   inlines = [PostImageAdmin,]
+class PostImageAdmin(admin.ModelAdmin):
+    pass
 
 
-admin.site.register(Post)
+class PostImageInline(admin.StackedInline):
+  model = PostImage
+  extra = 0
+
+
+class PostAdmin(admin.ModelAdmin):
+  inlines = [PostImageInline,]
+
+
+# admin.site.register(Post)
 admin.site.register(Category)
 admin.site.register(Event)
 admin.site.register(Comment)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(PhotoAlbum, PhotoAlbumAdmin)
-# admin.site.register(Post, PostAdmin)
+admin.site.register(Post, PostAdmin)

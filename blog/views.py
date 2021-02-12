@@ -1,17 +1,37 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 # Create your views here.
-from .models import Post, Category, Event, Comment, PhotoAlbum, Photo
+from .models import Post, Category, Event, Comment, PhotoAlbum, Photo, PostImage
 from .forms import CommentForm
+
 
 
 def index(request):
     return render(request, 'about.html')
 
 
+def paginate(request, posts):
+    paginator = Paginator(posts, 10)
+
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    return posts
+
+
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    posts = Post.objects.all().order_by('-published_date')
+
+    posts = paginate(request, posts)
+
     return render(request, 'blog/blog.html',
                   {
                       'page_title': 'Блог',
@@ -21,7 +41,10 @@ def post_list(request):
 
 def category_post_list(request, pk):
     posts = Post.objects.filter(category__pk=pk).order_by('-published_date')
+    posts = paginate(request, posts)
+
     category = get_object_or_404(Category, pk=pk)
+
     return render(request, 'blog/blog.html',
                   {
                       'page_title': category.title,
@@ -32,7 +55,8 @@ def category_post_list(request, pk):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     comments = Comment.objects.filter(post__pk=pk).order_by('-created_date')
-    return render(request, 'blog/blog-single.html', {'post': post, 'comments': comments})
+    photos = PostImage.objects.filter(post=post)
+    return render(request, 'blog/blog-single.html', {'post': post, 'comments': comments, 'photos': photos})
 
 
 def events_list(request):

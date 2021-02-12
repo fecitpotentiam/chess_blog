@@ -22,7 +22,7 @@ from .settings import MEDIA_URL, MEDIA_ROOT
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('blog', views.post_list, name='post_list'),
+    path('blog/', views.post_list, name='post_list'),
     path('blog/category/<int:pk>/', views.category_post_list, name='category_post_list'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),

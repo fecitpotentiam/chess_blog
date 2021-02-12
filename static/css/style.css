@@ -7350,7 +7350,7 @@ h1, h2, h3, h4, h5,
   left: 0;
   right: 0;
   overflow-y: hidden;
-  z-index: 1001;
+  z-index: 500;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
@@ -7967,7 +7967,7 @@ h1, h2, h3, h4, h5,
       display: block; }
       .blog-entry .text .meta-wrap .meta span {
         font-size: 14px;
-        margin: 0 10px 0 0;
+        /*margin: 0 0px 0 0;*/
         color: gray; }
         .blog-entry .text .meta-wrap .meta span a {
           color: #000000; }
@@ -8722,3 +8722,14 @@ textarea.form-control {
   padding-bottom:30px;
 }
 
+.block-27{
+  text-align: center;
+}
+
+.ion-ios-arrow-forward {
+  color: white !important;
+}
+
+.ftco-services .block-27{
+  text-align: end !important;
+}

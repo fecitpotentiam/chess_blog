@@ -28,39 +28,60 @@
                                                class="img img-2"
                                                style="background-image: url({{ post.image.url }}"></a>
                                             <div class="text pt-3">
-                                                <h3 class="mb-2"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                                                <h3 class="mb-2"><a
+                                                        href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+                                                </h3>
                                                 <div class="meta-wrap">
                                                     <p class="meta">
+                                                        <span class="icon-calendar"></span>
+
                                                         <span>{{ post.published_date }}</span>
+
+                                                        <span class="icon-label"></span>
+
                                                         <span><a
                                                                 href="{% url 'category_post_list' pk=post.category.pk %}">{{ post.category }}</a></span>
+
+                                                        <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">
+                                                    Читать <span
+                                                        class="ion-ios-arrow-forward"></span></a>
+
                                                     </p>
                                                 </div>
-                                                <p><a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary"> Читать <span
-                                                        class="ion-ios-arrow-forward"></span></a></p>
                                             </div>
                                         </div>
                                     </div>
 
                                 {% endfor %}
                             </div><!-- END-->
+
                             <div class="row">
                                 <div class="col">
                                     <div class="block-27">
-                                        <ul>
-                                            <li><a href="#">&lt;</a></li>
-                                            <li class="active"><span>1</span></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#">5</a></li>
-                                            <li><a href="#">&gt;</a></li>
-                                        </ul>
+
+                                        {% if posts.has_other_pages %}
+                                            <ul>
+                                                {% if posts.has_previous %}
+                                                    <li><a href="?page={{ posts.previous_page_number }}">&lt;</a></li>
+                                                {% endif %}
+                                                {% for i in posts.paginator.page_range %}
+                                                    {% if posts.number == i %}
+                                                        <li class="active"><span>{{ i }}<span
+                                                                class="sr-only">(current)</span></span></li>
+                                                    {% else %}
+                                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% if posts.has_next %}
+                                                    <li><a href="?page={{ posts.next_page_number }}">></a></li>
+                                                {% endif %}
+                                            </ul>
+                                        {% endif %}
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         {% include "blog/blog-sidebar.html" %}
 
                     </div>
