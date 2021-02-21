@@ -8,7 +8,6 @@ from .models import Post, Category, Event, Comment, PhotoAlbum, Photo, PostImage
 from .forms import CommentForm
 
 
-
 def index(request):
     return render(request, 'about.html')
 
@@ -72,7 +71,6 @@ def event_detail(request, pk):
 
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    print(request.method)
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -82,7 +80,24 @@ def add_comment_to_post(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
-    return render(request, 'post.html', {'form': form})
+
+    return render(request, 'blog/blog-single.html', {'form': form})
+
+
+def search(request):
+    if request.method == "POST":
+        query = request.POST['query']
+
+        posts = Post.objects.filter(text__contains=query)
+        posts = paginate(request, posts)
+
+        return render(request, 'blog/blog.html',
+                      {
+                          'page_title': 'Блог',
+                          'posts': posts,
+                      })
+    else:
+        return redirect('post_list')
 
 
 def get_albums(request):

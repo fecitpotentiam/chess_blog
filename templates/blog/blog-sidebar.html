@@ -2,11 +2,14 @@
     {% load static %}
     <div class="col-lg-4 sidebar ftco-animate">
         <div class="sidebar-box pt-0">
-            <form action="#" class="search-form">
+
+            <form action="{% url 'search' %}" class="search-form" method="post">
+                {% csrf_token %}
                 <div class="form-group">
                     <span class="icon icon-search"></span>
-                    <input type="text" class="form-control"
+                    <input type="text" name="query" class="form-control" id="query"
                            placeholder="Введите ключевое слово и нажмите Enter">
+                    <input type="submit" style="display: none" />
                 </div>
             </form>
         </div>
