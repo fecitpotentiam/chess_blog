@@ -8738,6 +8738,9 @@ textarea.form-control {
   text-indent: 2em;
 }
 
+.qa-content {
+  margin-left: 1rem;
+}
 .answer {
   margin-top: 10px;
   align-items: center;
@@ -8755,4 +8758,8 @@ textarea.form-control {
   font-weight: bold;
    margin-bottom: 2rem;
    margin-top: 2rem;
+}
+
+.qa-content .sidebar-box {
+  padding: 0 !important;
 }
