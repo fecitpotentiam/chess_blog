@@ -24,6 +24,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('blog/', views.post_list, name='post_list'),
     path('blog/search/', views.search, name='search'),
+    path('blog/qa', views.create_question, name='qa'),
     path('blog/archive/<int:pk>', views.archived_posts, name='archived_posts'),
     path('blog/category/<int:pk>/', views.category_post_list, name='category_post_list'),
 

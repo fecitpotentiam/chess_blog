@@ -6,7 +6,7 @@ from django.utils import timezone
 
 # Create your views here.
 from .models import Post, Category, Event, Comment, PhotoAlbum, Photo, PostImage
-from .forms import CommentForm
+from .forms import CommentForm, QuestionForm
 
 
 def index(request):
@@ -125,3 +125,14 @@ def archived_posts(request, pk: int):
                       'page_title': f'Записи за {pk} год',
                       'posts': posts,
                   })
+
+
+def create_question(request):
+    if request.method == "POST":
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            question = form.save(commit=False)
+            question.save()
+            return redirect('post_list')
+    else:
+        return redirect('post_list')

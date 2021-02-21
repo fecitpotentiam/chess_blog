@@ -59,10 +59,12 @@
                 <div class="overlay"></div>
                 <h3 class="mb-4 sidebar-heading">Задайте свой вопрос</h3>
                 <p class="mb-4">Если Вам интересно узнать мое мнение по какому-либо вопросу, Вы можете задать его здесь. Он будет опубликован в рубрике "Вопрос-Ответ"</p>
-                <form action="#" class="subscribe-form">
+
+                <form action="{% url 'qa' %}" class="subscribe-form" method="post">
+                {% csrf_token %}
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Имя">
-                        <textarea class="form-control" rows="7" cols="45" name="text" placeholder="Текст вопроса"></textarea>
+                        <input type="text" name="author" class="form-control" placeholder="Имя">
+                        <textarea class="form-control" rows="7" cols="45" name="question" placeholder="Текст вопроса"></textarea>
                         <input type="submit" value="Спросить" class="mt-2 btn btn-white submit">
                     </div>
                 </form>

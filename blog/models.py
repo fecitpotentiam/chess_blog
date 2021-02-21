@@ -115,3 +115,14 @@ class Photo(models.Model):
   class Meta:
       verbose_name = 'Фото из альбома'
       verbose_name_plural = 'Фото из альбома'
+
+
+class QuestionAnswer(models.Model):
+    author = models.CharField(max_length=128, verbose_name='Автор')
+    question = models.TextField(verbose_name='Вопрос')
+    answer = models.TextField(null=True, verbose_name='Ответ')
+    published = models.BooleanField(default=False, verbose_name='Опубликовать')
+
+    class Meta:
+        verbose_name = 'Вопрос-ответ'
+        verbose_name_plural = 'Вопросы-ответы'
