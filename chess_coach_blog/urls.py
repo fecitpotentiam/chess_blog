@@ -37,6 +37,8 @@ urlpatterns = [
     path('albums', views.get_albums, name='get_albums'),
     path('album/<int:pk>', views.get_photos_in_album, name='get_photos_in_album'),
 
+    path('qa', views.question_answer, name='qa'),
+
     path('videolessons', views.youtube_videos, name='youtube_videos'),
 
     path('tinymce/', include('tinymce.urls')),

@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 # Create your views here.
-from .models import Post, Category, Event, Comment, PhotoAlbum, Photo, PostImage
+from .models import Post, Category, Event, Comment, PhotoAlbum, Photo, PostImage, QuestionAnswer
 from .forms import CommentForm, QuestionForm
 
 
@@ -136,3 +136,8 @@ def create_question(request):
             return redirect('post_list')
     else:
         return redirect('post_list')
+
+
+def question_answer(request):
+    questions = QuestionAnswer.objects.all().order_by('-published_date')
+    return render(request, 'question-answer.html', {'questions': questions})

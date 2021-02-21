@@ -7829,7 +7829,7 @@ h1, h2, h3, h4, h5,
     font-weight: 600;
     color: #000000;
     margin-bottom: 0;
-    font-size: 6vw;
+    font-size: 100px;
     display: inline-block;
     font-family: 'Bebas Neue', Sans-serif;
     position: relative;
@@ -8730,6 +8730,29 @@ textarea.form-control {
   color: white !important;
 }
 
-.ftco-services .block-27{
-  text-align: end !important;
+.post-details {
+  margin-right: 1em;
+}
+
+.post-text p {
+  text-indent: 2em;
+}
+
+.answer {
+  margin-top: 10px;
+  align-items: center;
+}
+
+.answer img {
+  border-radius: 50%;
+}
+
+.qa-block {
+   margin-bottom: 5rem;
+}
+
+.qa-block h3 {
+  font-weight: bold;
+   margin-bottom: 2rem;
+   margin-top: 2rem;
 }

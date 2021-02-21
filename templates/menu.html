@@ -6,6 +6,7 @@
             <li class="{% if "event" in request.resolver_match.url_name %}colorlib-active{% endif %}"><a href="/events">Анонсы</a></li>
             <li class="{% if "album" in request.resolver_match.url_name %}colorlib-active{% endif %}"><a href="/albums">Галерея</a></li>
             <li class="{% if "youtube" in request.resolver_match.url_name %}colorlib-active{% endif %}"><a href="/videolessons">Видеоуроки</a></li>
+            <li class="{% if "qa" in request.resolver_match.url_name %}colorlib-active{% endif %}"><a href="/qa">Вопрос-Ответ</a></li>
         </ul>
         <p class="social">
             <span><a href="#">Facebook</a></span>
