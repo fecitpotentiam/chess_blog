@@ -8763,3 +8763,7 @@ textarea.form-control {
 .qa-content .sidebar-box {
   padding: 0 !important;
 }
+
+.qa-content .subs-wrap .img .overlay {
+  opacity: 10;
+}
