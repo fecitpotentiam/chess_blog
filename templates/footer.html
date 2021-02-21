@@ -31,11 +31,14 @@
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Archives</h2>
                     <ul class="list-unstyled categories">
-                        <li><a href="#">June 2019 <span class="pr-lg-5">(20)</span></a></li>
-                        <li><a href="#">May 2019 <span class="pr-lg-5">(30)</span></a></li>
-                        <li><a href="#">April 2019 <span class="pr-lg-5">(43)</span></a></li>
-                        <li><a href="#">March 2019 <span class="pr-lg-5">(32)</span></a></li>
-                        <li><a href="#">February 2019 <span class="pr-lg-5">(34)</span></a></li>
+                        {% for post in archived_posts %}
+                            <li>
+                                <a href="{% url 'archived_posts' pk=post.published_date__year %}">
+                                {{ post.published_date__year }}
+                                    <span class="pr-lg-5">{{ post.count }}</span>
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Count
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
@@ -93,7 +94,7 @@ def search(request):
 
         return render(request, 'blog/blog.html',
                       {
-                          'page_title': 'Блог',
+                          'page_title': f'Поиск по запросу: {query}',
                           'posts': posts,
                       })
     else:
@@ -113,3 +114,14 @@ def get_photos_in_album(request, pk):
 
 def youtube_videos(request):
     return render(request, 'videolessons.html', {'test': 'test'})
+
+
+def archived_posts(request, pk: int):
+    posts = Post.objects.filter(published_date__year=pk).order_by('-published_date')
+    posts = paginate(request, posts)
+
+    return render(request, 'blog/blog.html',
+                  {
+                      'page_title': f'Записи за {pk} год',
+                      'posts': posts,
+                  })
