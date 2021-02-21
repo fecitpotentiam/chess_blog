@@ -121,6 +121,7 @@ class QuestionAnswer(models.Model):
     author = models.CharField(max_length=128, verbose_name='Автор')
     question = models.TextField(verbose_name='Вопрос')
     answer = models.TextField(null=True, verbose_name='Ответ')
+    published_date = models.DateTimeField(default=timezone.now, verbose_name='Дата')
     published = models.BooleanField(default=False, verbose_name='Опубликовать')
 
     class Meta:
