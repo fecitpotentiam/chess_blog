@@ -128,12 +128,14 @@ def archived_posts(request, pk: int):
 
 
 def create_question(request):
+    print('here')
     if request.method == "POST":
         form = QuestionForm(request.POST)
         if form.is_valid():
+            print(request.POST)
             question = form.save(commit=False)
             question.save()
-            return redirect('post_list')
+            return redirect('thanks')
     else:
         return redirect('post_list')
 
@@ -141,3 +143,7 @@ def create_question(request):
 def question_answer(request):
     questions = QuestionAnswer.objects.all().order_by('-published_date')
     return render(request, 'question-answer.html', {'questions': questions})
+
+
+def thanks(request):
+    return render(request, 'thanks.html')
