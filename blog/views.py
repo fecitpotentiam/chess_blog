@@ -148,11 +148,9 @@ def archived_posts(request, pk: int):
 
 
 def create_question(request):
-    print('here')
     if request.method == "POST":
         form = QuestionForm(request.POST)
         if form.is_valid():
-            print(request.POST)
             question = form.save(commit=False)
             question.save()
             return redirect('thanks')
@@ -162,6 +160,17 @@ def create_question(request):
 
 def question_answer(request):
     questions = QuestionAnswer.objects.all().order_by('-published_date')
+
+    paginator = Paginator(questions, 10)
+
+    page = request.GET.get('page')
+    try:
+        questions = paginator.page(page)
+    except PageNotAnInteger:
+        questions = paginator.page(1)
+    except EmptyPage:
+        questions = paginator.page(paginator.num_pages)
+
     return render(request, 'question-answer.html', {'questions': questions})
 
 
