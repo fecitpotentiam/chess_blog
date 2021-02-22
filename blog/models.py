@@ -60,6 +60,9 @@ class PostImage(models.Model):
     post = models.ForeignKey(Post, related_name="post_image", on_delete=models.CASCADE)
     created_date = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return str(self.created_date)
+
     class Meta:
         verbose_name = 'Фото для поста'
         verbose_name_plural = 'Фото для постов'
@@ -115,6 +118,9 @@ class Photo(models.Model):
   album = models.ForeignKey(PhotoAlbum, related_name="photo", on_delete=models.CASCADE)
   created_date = models.DateTimeField(default=timezone.now)
 
+  def __str__(self):
+      return str(self.created_date)
+
   class Meta:
       verbose_name = 'Фото из альбома'
       verbose_name_plural = 'Фото из альбома'
@@ -127,6 +133,9 @@ class QuestionAnswer(models.Model):
     published_date = models.DateTimeField(default=timezone.now, verbose_name='Дата')
     published = models.BooleanField(default=False, verbose_name='Опубликовать')
 
+    def __str__(self):
+        return self.question
+
     class Meta:
         verbose_name = 'Вопрос-ответ'
         verbose_name_plural = 'Вопросы-ответы'
@@ -137,6 +146,9 @@ class VideoLesson(models.Model):
     description = models.CharField(max_length=256, verbose_name='Описание')
     link = models.CharField(max_length=80, verbose_name='Ссылка на Youtube')
     published_date = models.DateTimeField(default=timezone.now, verbose_name='Дата публикации')
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name = 'Видеоурок с Youtube'
