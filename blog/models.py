@@ -1,10 +1,13 @@
 from django.db import models
-
-from django.conf import settings
-from django.db import models
+from django.db.models import signals
 from django.utils import timezone
 
 from tinymce import models as tinymce_models
+
+
+def edit_video_link(sender, instance, **kwargs):
+    link = instance.link.replace('watch?v=', '/embed/')
+    instance.link = link
 
 
 class Category(models.Model):
@@ -127,3 +130,17 @@ class QuestionAnswer(models.Model):
     class Meta:
         verbose_name = 'Вопрос-ответ'
         verbose_name_plural = 'Вопросы-ответы'
+
+
+class VideoLesson(models.Model):
+    title = models.CharField(max_length=80, verbose_name='Название')
+    description = models.CharField(max_length=256, verbose_name='Описание')
+    link = models.CharField(max_length=80, verbose_name='Ссылка на Youtube')
+    published_date = models.DateTimeField(default=timezone.now, verbose_name='Дата публикации')
+
+    class Meta:
+        verbose_name = 'Видеоурок с Youtube'
+        verbose_name_plural = 'Видеоуроки с YouTube'
+
+
+signals.pre_save.connect(receiver=edit_video_link, sender=VideoLesson)

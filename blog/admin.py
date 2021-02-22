@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.contrib import admin
 from django.contrib.admin.options import InlineModelAdmin
 
-from .models import Post, Category, Event, Comment, Photo, PhotoAlbum, PostImage, QuestionAnswer
+from .models import Post, Category, Event, Comment, Photo, PhotoAlbum, PostImage, VideoLesson, QuestionAnswer
 
 
 class PhotoAdmin(admin.ModelAdmin):
@@ -39,7 +39,7 @@ admin.site.register(PhotoAlbum, PhotoAlbumAdmin)
 admin.site.register(Post, PostAdmin)
 
 
-for admin_model in [Category, Event, Comment, QuestionAnswer]:
+for admin_model in [Category, Event, Comment, VideoLesson, QuestionAnswer]:
   admin.site.register(admin_model)
 # admin.site.register(Post)
 # admin.site.register(Category)
