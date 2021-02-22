@@ -61,6 +61,16 @@ def post_detail(request, pk):
 
 def events_list(request):
     events = Event.objects.all().order_by('-datetime')
+    paginator = Paginator(events, 6)
+
+    page = request.GET.get('page')
+    try:
+        events = paginator.page(page)
+    except PageNotAnInteger:
+        events = paginator.page(1)
+    except EmptyPage:
+        events = paginator.page(paginator.num_pages)
+
     return render(request, 'events.html',
                   {'events': events})
 
@@ -103,6 +113,16 @@ def search(request):
 
 def get_albums(request):
     albums = PhotoAlbum.objects.all().order_by('-created_date')
+    paginator = Paginator(albums, 6)
+
+    page = request.GET.get('page')
+    try:
+        albums = paginator.page(page)
+    except PageNotAnInteger:
+        albums = paginator.page(1)
+    except EmptyPage:
+        albums = paginator.page(paginator.num_pages)
+
     return render(request, 'gallery.html', {'albums': albums})
 
 
