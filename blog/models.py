@@ -161,7 +161,10 @@ class Video(models.Model):
 
 class MainInformation(models.Model):
     main_page_text = tinymce_models.HTMLField(verbose_name='Текст на главной')
-    address = models.CharField(max_length=256, verbose_name='Адрес', null=True)
+    address_1 = models.CharField(max_length=256, verbose_name='Адрес №1', null=True)
+    address_2 = models.CharField(max_length=256, verbose_name='Адрес №2', null=True)
+    address_1_google_map = models.CharField(max_length=256, verbose_name='Ссылка на Адрес №1 в Google Map', null=True)
+    address_2_google_map = models.CharField(max_length=256, verbose_name='Ссылка на Адрес №2 в Google Map', null=True)
     phone = models.CharField(max_length=16, verbose_name='Телефон (в формате 89..) без пробелов и скобок')
     email = models.CharField(max_length=32, verbose_name='Email')
     vk_link = models.CharField(max_length=80, verbose_name='Ссылка на ВК')

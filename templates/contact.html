@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
     <section class="ftco-section ftco-bread ftco-extend-mb">
         <div class="container-fluid px-3 px-md-0">
             <div class="row no-gutters slider-text justify-content-end align-items-center">
@@ -14,29 +13,115 @@
         </div>
     </section>
 
-    <section class="ftco-section contact-section ftco-no-pt qa-content">
-        <div class="container-fluid px-md-0 px-3">
-            <div class="row mb-5 contact-info justify-content-end">
+
+    <section class="ftco-services ftco-section ftco-no-pt">
+        <div class="container-fluid px-3 px-md-0">
+            <div class="row justify-content-end">
                 <div class="col-md-10">
-                    <div class="row">
-                        <div class="col-md-3 d-flex">
-                            <div class="info py-4">
-                                <p><span>Адрес:</span> {{ main_information.address }} </p>
+                    <div class="row mb-lg-5">
+
+
+                        <div class="col-md-4 d-flex ftco-animate">
+                            <div class="media block-6 services d-block">
+                                <div class="media-body p-2 mt-3">
+
+                                    <h3 class="heading">Адрес</h3>
+                                    <p>
+                                        <span class="event-icon">
+                                        <img src="{% static '/images/icons/Location.png' %}" alt="">
+                                        </span>
+                                        <a href="{{ main_information.address_1_google_map }}"><span
+                                                class="text">{{ main_information.address_1 }}</span>
+                                        </a></p>
+                                    <p>
+                                        <span class="event-icon">
+                                        <img src="{% static '/images/icons/Location.png' %}" alt="">
+                                        </span>
+                                        <a href="{{ main_information.address_2_google_map }}"><span
+                                                class="text">{{ main_information.address_2 }}</span>
+                                        </a></p>
+
+
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-3 d-flex">
-                            <div class="info py-4">
-                                <p><span>Телефон:</span> <a href="tel://1234567920">{{ main_information.phone }}</a></p>
+
+
+                        <div class="col-md-4 d-flex ftco-animate">
+                            <div class="media block-6 services d-block">
+                                <div class="media-body p-2 mt-3">
+
+                                    <h3 class="heading">Телефон</h3>
+                                    <p>
+                                        <span class="event-icon">
+                                        <img src="{% static '/images/icons/Phone.png' %}" alt="">
+                                        </span>
+                                        <a href="tel:{{ main_information.phone }}"><span
+                                        class="text">{{ main_information.phone }}</span></a></p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-3 d-flex">
-                            <div class="info py-4">
-                                <p><span>Email:</span> <a href="mailto:info@yoursite.com">{{ main_information.email }}</a></p>
+
+                        <div class="col-md-4 d-flex ftco-animate">
+                            <div class="media block-6 services d-block">
+                                <div class="media-body p-2 mt-3">
+
+                                    <h3 class="heading">Email</h3>
+                                    <p>
+                                        <span class="event-icon">
+                                        <img src="{% static '/images/icons/Email.png' %}" alt="">
+                                        </span>
+                                        <a href="mailto:{{main_information.email}}"><span
+                                                class="text">{{ main_information.email }}</span>
+                                        </a></p>
+
+
+                                </div>
                             </div>
                         </div>
+
+
+
+
                     </div>
+
+                    {#                Pagination Block#}
+
                 </div>
             </div>
         </div>
     </section>
+
+
+
+
+    {#                                <div class="col-md-12 d-flex ftco-animate">#}
+    {##}
+    {#                                    <div class="media block-6 services d-block qa-block">#}
+    {#                                        <h3>Адрес</h3>#}
+    {#                                        <p><a href="{{ main_information.address_1_google_map}}"><span class="icon icon-map-marker"></span><span class="text">{{ main_information.address_1 }}</span>#}
+    {#                            </a></p>#}
+    {#                                        <p><a href="{{ main_information.address_2_google_map}}"><span class="icon icon-map-marker"></span><span class="text">{{ main_information.address_2 }}</span>#}
+    {#                            </a></p>#}
+    {#                                    </div>#}
+    {##}
+    {##}
+    {##}
+    {#                                    <div class="media block-6 services d-block qa-block">#}
+    {#                                        <h3>Телефон</h3>#}
+    {#                                        <p><a href="tel:{{ main_information.phone }}"><span class="icon icon-phone"></span><span#}
+    {#                                    class="text">{{ main_information.phone }}</span></a></p>#}
+    {#                                    </div>#}
+    {##}
+    {##}
+    {##}
+    {#                                    <div class="media block-6 services d-block qa-block">#}
+    {#                                        <h3>Email</h3>#}
+    {#                                        <p><a href="mailto:{{main_information.email}}"><span class="icon icon-envelope"></span><span class="text">{{ main_information.email }}</span>#}
+    {#                            </a></p>#}
+    {#                                    </div>#}
+
+
+
+
 {% endblock %}

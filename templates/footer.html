@@ -2,31 +2,25 @@
     <div class="container px-md-5">
         <div class="row mb-5">
             <div class="col-md">
-                <div class="ftco-footer-widget mb-4 ml-md-4">
-                    <h2 class="ftco-heading-2">Instagram</h2>
-                    <ul class="list-unstyled photo">
-                        <li><a href="#" class="img" style="background-image: url(images/work-1.jpg);"></a></li>
-                        <li><a href="#" class="img" style="background-image: url(images/work-2.jpg);"></a></li>
-                        <li><a href="#" class="img" style="background-image: url(images/work-3.jpg);"></a></li>
-                        <li><a href="#" class="img" style="background-image: url(images/work-4.jpg);"></a></li>
-                        <li><a href="#" class="img" style="background-image: url(images/work-5.jpg);"></a></li>
-                        <li><a href="#" class="img" style="background-image: url(images/work-6.jpg);"></a></li>
+                <div class="ftco-footer-widget mb-4 pl-lg-5">
+                    <h2 class="ftco-heading-2">Основное</h2>
+                    <ul class="list-unstyled categories">
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/blog">Блог</a></li>
+                        <li><a href="/events">Анонсы</a></li>
+                        <li><a href="/qa">Вопрос-Ответ</a></li>
+                        <li><a href="/contacts">Контакты</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4 pl-lg-5">
-                    <h2 class="ftco-heading-2">Ссылки</h2>
+                    <h2>Материалы</h2>
                     <ul class="list-unstyled categories">
-                        <li><a href="/">Главная</a></li>
-                        <li><a href="/blog">Блог</a></li>
-                        <li><a href="/events">Анонсы</a></li>
                         <li><a href="/albums">Галерея</a></li>
                         <li><a href="/video">Видео</a></li>
                         <li><a href="/book">Книга</a></li>
                         <li><a href="/links">Ссылки</a></li>
-                        <li><a href="/qa">Вопрос-Ответ</a></li>
-                        <li><a href="/contacts">Контакты</a></li>
                     </ul>
                 </div>
             </div>
@@ -50,12 +44,14 @@
                     <h2 class="ftco-heading-2">Контакты</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">{{ main_information.address }}</span>
-                            </li>
-                            <li><span class="icon icon-phone"></span><span
-                                    class="text">{{ main_information.phone }}</span></li>
-                            <li><span class="icon icon-envelope"></span><span class="text">{{ main_information.email }}</span>
-                            </li>
+                            <li><a href="{{ main_information.address_2_google_map}}"><span class="icon icon-map-marker"></span><span class="text">{{ main_information.address_1 }}</span>
+                            </a></li>
+                            <li><a href="{{ main_information.address_2_google_map}}"><span class="icon icon-map-marker"></span><span class="text">{{ main_information.address_2 }}</span>
+                            </a></li>
+                            <li><a href="tel:{{ main_information.phone }}"><span class="icon icon-phone"></span><span
+                                    class="text">{{ main_information.phone }}</span></a></li>
+                            <li><a href="mailto:{{main_information.email}}"><span class="icon icon-envelope"></span><span class="text">{{ main_information.email }}</span>
+                            </a></li>
                         </ul>
                     </div>
                 </div>
