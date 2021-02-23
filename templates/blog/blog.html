@@ -33,18 +33,17 @@
                                                 </h3>
                                                 <div class="meta-wrap">
                                                     <p class="meta">
+                                                        <span class="post-details">
                                                         <span class="icon-calendar"></span>
 
                                                         <span>{{ post.published_date }}</span>
-
+                                                        </span>
+                                                        <span class="post-details">
                                                         <span class="icon-label"></span>
 
                                                         <span><a
                                                                 href="{% url 'category_post_list' pk=post.category.pk %}">{{ post.category }}</a></span>
-
-                                                        <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">
-                                                    Читать <span
-                                                        class="ion-ios-arrow-forward"></span></a>
+                                                        </span>
 
                                                     </p>
                                                 </div>
