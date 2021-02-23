@@ -11,7 +11,6 @@ def get_menu_info(request):
     archived_posts = Post.objects.values('published_date__year').order_by(
         '-published_date__year'
     ).annotate(count=Count('id'))
-    print(archived_posts)
 
     return {
         'latest_posts': latest_posts,

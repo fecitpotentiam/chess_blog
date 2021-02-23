@@ -145,8 +145,6 @@ def youtube_videos(request):
     except EmptyPage:
         videos = paginator.page(paginator.num_pages)
 
-    print(videos)
-
     return render(request, 'videolessons.html', {'videos': videos})
 
 
