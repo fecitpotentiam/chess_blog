@@ -155,4 +155,20 @@ class VideoLesson(models.Model):
         verbose_name_plural = 'Видеоуроки с YouTube'
 
 
+class MainInformation(models.Model):
+    main_page_text = tinymce_models.HTMLField(verbose_name='Текст на главной')
+    address = models.CharField(max_length=256, verbose_name='Адрес', null=True)
+    phone = models.CharField(max_length=16, verbose_name='Телефон')
+    email = models.CharField(max_length=32, verbose_name='Email')
+    vk_link = models.CharField(max_length=32, verbose_name='Ссылка на ВК')
+    instagram_link = models.CharField(max_length=32, verbose_name='Ссылка на Instagram')
+
+    def __str__(self):
+        return 'Основная информация'
+
+    class Meta:
+        verbose_name = 'Основная информация'
+        verbose_name_plural = 'Основная информация'
+
+
 signals.pre_save.connect(receiver=edit_video_link, sender=VideoLesson)
