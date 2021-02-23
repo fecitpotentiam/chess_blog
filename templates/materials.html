@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <section class="ftco-section ftco-bread ftco-extend-mb">
+        <div class="container-fluid px-3 px-md-0">
+            <div class="row no-gutters slider-text justify-content-end align-items-center">
+                <div class="col-md-10 ftco-animate">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Главная</a></span> <span>Материалы</span>
+                    </p>
+                    <h1 class="bread">Материалы</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-services ftco-section ftco-no-pt">
+        <div class="container-fluid px-3 px-md-0 qa-content">
+            <div class="row justify-content-end">
+                <div class="col-md-10">
+                    <div class="row mb-lg-5">
+                        {% for material in materials %}
+                                <div class="col-md-10 d-flex ftco-animate">
+                                    <div class="media block-6 services d-block qa-block">
+                                        <a href="{{ material.link }}">
+                                        <h3>{{ material.title }}</h3>
+                                        <p>{{ material.description }}</p>
+                                        </a>
+
+                                    </div>
+                                </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="block-27">
+
+                                {% if materials.has_other_pages %}
+                                    <ul>
+                                        {% if materials.has_previous %}
+                                            <li><a href="?page={{ materials.previous_page_number }}">&lt;</a></li>
+                                        {% endif %}
+                                        {% for i in materials.paginator.page_range %}
+                                            {% if materials.number == i %}
+                                                <li class="active"><span>{{ i }}<span
+                                                        class="sr-only">(current)</span></span></li>
+                                            {% else %}
+                                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% if materials.has_next %}
+                                            <li><a href="?page={{ materials.next_page_number }}">></a></li>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -5,7 +5,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 # Create your views here.
-from .models import Post, Category, Event, Comment, MainInformation, PhotoAlbum, Photo, PostImage, Video, QuestionAnswer
+from .models import Post, Category, Event, Comment, MainInformation, PhotoAlbum, Photo, PostImage, Video, \
+    QuestionAnswer, Material
 from .forms import CommentForm, QuestionForm
 
 
@@ -188,6 +189,22 @@ def question_answer(request):
 
 def thanks(request):
     return render(request, 'thanks.html')
+
+
+def materials(request):
+    materials_list = Material.objects.all().order_by('-published_date')
+
+    paginator = Paginator(materials_list, 20)
+
+    page = request.GET.get('page')
+    try:
+        materials_list = paginator.page(page)
+    except PageNotAnInteger:
+        materials_list = paginator.page(1)
+    except EmptyPage:
+        materials_list = paginator.page(paginator.num_pages)
+
+    return render(request, 'materials.html', {'materials': materials_list})
 
 
 def book(request):

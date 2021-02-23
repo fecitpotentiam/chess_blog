@@ -24,7 +24,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('blog/', views.post_list, name='post_list'),
     path('blog/search/', views.search, name='search'),
-    path('blog/qa', views.create_question, name='qa'),
     path('blog/archive/<int:pk>', views.archived_posts, name='archived_posts'),
     path('blog/category/<int:pk>/', views.category_post_list, name='category_post_list'),
 
@@ -38,10 +37,15 @@ urlpatterns = [
     path('album/<int:pk>', views.get_photos_in_album, name='get_photos_in_album'),
 
     path('qa', views.question_answer, name='qa'),
+    path('create_question', views.create_question, name='create_question'),
     path('thanks', views.thanks, name='thanks'),
 
     path('video', views.youtube_videos, name='youtube_videos'),
+
+    path('materials', views.materials, name='materials'),
+
     path('book', views.book, name='book'),
+
     path('contacts', views.contacts, name='contacts'),
 
     path('tinymce/', include('tinymce.urls')),

@@ -178,5 +178,19 @@ class MainInformation(models.Model):
         verbose_name_plural = 'Основная информация'
 
 
+class Material(models.Model):
+    title = models.CharField(max_length=128, verbose_name='Название')
+    description = models.TextField(verbose_name='Описание')
+    link = models.CharField(max_length=256, verbose_name='Ссылка')
+    published_date = models.DateTimeField(default=timezone.now, verbose_name='Дата публикации')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Ссылка на материал'
+        verbose_name_plural = 'Ссылки на материалы'
+
+
 signals.pre_save.connect(receiver=edit_video_link, sender=Video)
 signals.pre_save.connect(receiver=create_whatsapp_link, sender=MainInformation)
