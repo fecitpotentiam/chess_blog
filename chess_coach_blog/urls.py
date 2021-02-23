@@ -42,7 +42,7 @@ urlpatterns = [
 
     path('video', views.youtube_videos, name='youtube_videos'),
 
-    path('materials', views.materials, name='materials'),
+    path('links', views.materials, name='links'),
 
     path('book', views.book, name='book'),
 
