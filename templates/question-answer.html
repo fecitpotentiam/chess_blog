@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+
     <section class="ftco-section ftco-bread ftco-extend-mb">
         <div class="container-fluid px-3 px-md-0">
             <div class="row no-gutters slider-text justify-content-end align-items-center">
@@ -18,8 +19,6 @@
             <div class="row justify-content-end">
                 <div class="col-md-10">
                     <div class="row mb-lg-5">
-
-
                         {% for quest in questions %}
                             {% if quest.published %}
                                 <div class="col-md-10 d-flex ftco-animate">
@@ -27,17 +26,14 @@
                                         <h3>Вопрос</h3>
                                         <div class="meta-wrap">
                                             <p class="meta">
-                                                        <span class="post-details">
+                                                <span class="post-details">
                                                         <span class="icon-calendar"></span>
-
                                                         <span>{{ quest.published_date }}</span>
-                                                        </span>
+                                                </span>
                                                 <span class="post-details">
                                                         <span class="icon-user"></span>
-
                                                         <span>{{ quest.author }}</span>
-                                                        </span>
-
+                                                </span>
                                             </p>
                                         </div>
                                         <p>{{ quest.question }}</p>
@@ -61,7 +57,7 @@
                             {% endif %}
                         {% endfor %}
 
-                                            <div class="col-md-10 d-flex ftco-animate">
+                        <div class="col-md-10 d-flex ftco-animate">
                             <div class="sidebar-box subs-wrap">
                                 <div class="img p-4">
                                     <div class="overlay"></div>
