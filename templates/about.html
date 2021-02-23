@@ -30,14 +30,10 @@
                     <div class="author-info text p-4 p-md-5 mt-5 mb-5 align-items-center d-flex ftco-animate">
                         <div class="desc">
                             <h1 class="mb-4">Добро пожаловать на мой персональный сайт! </h1>
-                            <p>Меня зовут Мария. С 2006 года являюсь кандидатом в мастера спорта, в 2016 году выполнила норматив женского мастера FIDE.
-<p>Была вице-чемпионкой России, многократной чемпионкой города, области и округа среди девушек, а также двукратной чемпионкой Свердловской области среди женщин.
-Уже четвертый год я занимаюсь активной тренерской деятельностью (а до этого - пять лет индивидуальным репетиторством). Практически ежедневно на занятиях происходит множество моментов, которые хотелось бы сохранить в памяти и поделиться ими с тем, кому это могло бы быть интересно.
-                        </p>
-<p> Итак, мой сайт посвящен тренерской деятельности: истории, эпизоды из учебного процесса, фото, отчеты о соревнованиях, любопытные задачи и материалы.</p>
+                            {{ information.main_page_text | safe}}
                             <ul class="ftco-social mt-5">
-                                <li class="ftco-animate"><a href="#"><span class="icon-vk"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                                <li class="ftco-animate"><a href="{{ information.vk_link }}"><span class="icon-vk"></span></a></li>
+                                <li class="ftco-animate"><a href="{{ information.instagram_link }}"><span class="icon-instagram"></span></a></li>
                             </ul>
                         </div>
                     </div>

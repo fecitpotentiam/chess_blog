@@ -5,12 +5,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 # Create your views here.
-from .models import Post, Category, Event, Comment, PhotoAlbum, Photo, PostImage, VideoLesson, QuestionAnswer
+from .models import Post, Category, Event, Comment, MainInformation, PhotoAlbum, Photo, PostImage, VideoLesson, QuestionAnswer
 from .forms import CommentForm, QuestionForm
 
 
 def index(request):
-    return render(request, 'about.html')
+    information = MainInformation.objects.all().first()
+    return render(request, 'about.html', {'information': information})
 
 
 def paginate(request, posts):
