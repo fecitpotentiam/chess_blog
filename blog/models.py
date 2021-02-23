@@ -160,8 +160,9 @@ class MainInformation(models.Model):
     address = models.CharField(max_length=256, verbose_name='Адрес', null=True)
     phone = models.CharField(max_length=16, verbose_name='Телефон')
     email = models.CharField(max_length=32, verbose_name='Email')
-    vk_link = models.CharField(max_length=32, verbose_name='Ссылка на ВК')
-    instagram_link = models.CharField(max_length=32, verbose_name='Ссылка на Instagram')
+    vk_link = models.CharField(max_length=80, verbose_name='Ссылка на ВК')
+    instagram_link = models.CharField(max_length=80, verbose_name='Ссылка на Instagram')
+    youtube_link = models.CharField(max_length=80, verbose_name='Ссылка на YouTube', null=True)
 
     def __str__(self):
         return 'Основная информация'

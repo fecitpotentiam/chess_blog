@@ -188,3 +188,7 @@ def question_answer(request):
 
 def thanks(request):
     return render(request, 'thanks.html')
+
+
+def contacts(request):
+    return render(request, 'contact.html')

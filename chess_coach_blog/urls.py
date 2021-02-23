@@ -42,6 +42,8 @@ urlpatterns = [
 
     path('videolessons', views.youtube_videos, name='youtube_videos'),
 
+    path('contacts', views.contacts, name='contacts'),
+
     path('tinymce/', include('tinymce.urls')),
 
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
