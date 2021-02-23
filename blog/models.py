@@ -145,7 +145,7 @@ class QuestionAnswer(models.Model):
         verbose_name_plural = 'Вопросы-ответы'
 
 
-class VideoLesson(models.Model):
+class Video(models.Model):
     title = models.CharField(max_length=80, verbose_name='Название')
     description = models.CharField(max_length=256, verbose_name='Описание')
     link = models.CharField(max_length=80, verbose_name='Ссылка на Youtube')
@@ -155,8 +155,8 @@ class VideoLesson(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Видеоурок с Youtube'
-        verbose_name_plural = 'Видеоуроки с YouTube'
+        verbose_name = 'Видео с Youtube'
+        verbose_name_plural = 'Видео с YouTube'
 
 
 class MainInformation(models.Model):
@@ -178,5 +178,5 @@ class MainInformation(models.Model):
         verbose_name_plural = 'Основная информация'
 
 
-signals.pre_save.connect(receiver=edit_video_link, sender=VideoLesson)
+signals.pre_save.connect(receiver=edit_video_link, sender=Video)
 signals.pre_save.connect(receiver=create_whatsapp_link, sender=MainInformation)

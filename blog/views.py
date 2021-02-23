@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 # Create your views here.
-from .models import Post, Category, Event, Comment, MainInformation, PhotoAlbum, Photo, PostImage, VideoLesson, QuestionAnswer
+from .models import Post, Category, Event, Comment, MainInformation, PhotoAlbum, Photo, PostImage, Video, QuestionAnswer
 from .forms import CommentForm, QuestionForm
 
 
@@ -134,7 +134,7 @@ def get_photos_in_album(request, pk):
 
 
 def youtube_videos(request):
-    videos = VideoLesson.objects.all().order_by('-published_date')
+    videos = Video.objects.all().order_by('-published_date')
     paginator = Paginator(videos, 6)
 
     page = request.GET.get('page')
@@ -145,7 +145,7 @@ def youtube_videos(request):
     except EmptyPage:
         videos = paginator.page(paginator.num_pages)
 
-    return render(request, 'videolessons.html', {'videos': videos})
+    return render(request, 'video.html', {'videos': videos})
 
 
 def archived_posts(request, pk: int):
