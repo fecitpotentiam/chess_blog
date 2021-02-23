@@ -11,85 +11,73 @@
             </div>
         </div>
     </section>
-
     <section class="ftco-section ftco-no-pt">
         <div class="container-fluid px-3 px-md-0">
-            <div class="row justify-content-end">
-                <div class="col-md-10">
-                    <div class="row d-flex">
-                        <div class="col-lg-8 ftco-animate">
-{#                            <h1 class="mb-3 font-weight-bold">Build Architecure Design</h1>#}
-                            <p>
-                                <img src="{{ post.image.url }}" alt="" class="img-fluid">
-                            </p>
-
-                                                                            <p class="meta">
-                                                        <span class="post-details">
-                                                        <span class="icon-calendar"></span>
-
-                                                        <span>{{ post.published_date }}</span>
-                                                        </span>
-                                                        <span class="post-details">
-                                                        <span class="icon-label"></span>
-
-                                                        <span><a
-                                                                href="{% url 'category_post_list' pk=post.category.pk %}">{{ post.category }}</a></span>
-                                                        </span>
-                                                    </p>
-                            <hr>
-                        <div class="post-text">
-                            <p>{{ post.text | safe}}</p>
-                        </div>
-                            <hr>
-                            {% include "photo_gallery.html" %}
-
-                        <hr>
-
-                            <div class="about-author d-flex">
-                                <div class="bio mr-4">
-                                    <img src="{% static '/images/maria.png' %}" alt="Maria" class="img-fluid mb-4">
-                                </div>
-                                <div class="desc">
-                                    <h3>Мария Лапина (Лысенко)</h3>
-                                    <p>Тренер по шахматам. С 2006 года являюсь кандидатом в мастера спорта, в 2016 году выполнила норматив женского мастера FIDE.
-Была вице-чемпионкой России, многократной чемпионкой города, области и округа среди девушек, а также двукратной чемпионкой Свердловской области среди женщин.</p>
-                                </div>
-                            </div>
-
-
-                            <div class="pt-5 mt-5">
-                                <h3 class="mb-5 font-weight-bold">Комментарии</h3>
-
-                                {% if comments %}
-                                {% include "blog/blog-comments-list.html" %}
-                                {% else %}
-                                <p>Пока никто не оставил комментарий к записи. Будьте первыми! </p>
-                                {% endif %}
-
-                                <div class="comment-form-wrap pt-5">
-                                    <h3 class="mb-5">Оставить комментарий</h3>
-                                    <form action="{% url 'add_comment_to_post' pk=post.pk %}" method="post" class="p-3 p-md-5 bg-light">
-                                        {% csrf_token %}
-                                        <div class="form-group">
-                                            <label for="name">Имя</label>
-                                            <input type="text" class="form-control" id="author" name="author" placeholder="Имя">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="message">Текст комментария</label>
-                                            <textarea name="text" id="message" cols="30" rows="10"
-                                                      placeholder="Введите текст комментария" class="form-control">
-                                            </textarea>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <button type="submit" class="btn py-3 px-4 btn-primary"> Отправить </button>
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div> <!-- .col-md-8 -->
-                        {% include "blog/blog-sidebar.html" %}
+        <div class="row justify-content-end">
+        <div class="col-md-10">
+        <div class="row d-flex">
+            <div class="col-lg-8 ftco-animate">
+                <p>
+                    <img src="{{ post.image.url }}" alt="" class="img-fluid">
+                </p>
+                <p class="meta">
+                    <span class="post-details">
+                    <span class="icon-calendar"></span>
+                    <span>{{ post.published_date }}</span>
+                    </span>
+                    <span class="post-details">
+                    <span class="icon-label"></span>
+                    <span><a
+                        href="{% url 'category_post_list' pk=post.category.pk %}">{{ post.category }}</a></span>
+                    </span>
+                </p>
+                <hr>
+                <div class="post-text">
+                    <p>{{ post.text | safe}}</p>
+                </div>
+                <hr>
+                {% include "photo_gallery.html" %}
+                <hr>
+                <div class="about-author d-flex">
+                    <div class="bio mr-4">
+                        <img src="{% static '/images/maria.png' %}" alt="Maria" class="img-fluid mb-4">
                     </div>
+                    <div class="desc">
+                        <h3>Мария Лапина (Лысенко)</h3>
+                        <p>Тренер по шахматам. С 2006 года являюсь кандидатом в мастера спорта, в 2016 году выполнила норматив женского мастера FIDE.
+                            Была вице-чемпионкой России, многократной чемпионкой города, области и округа среди девушек, а также двукратной чемпионкой Свердловской области среди женщин.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-5 mt-5">
+                    <h3 class="mb-5 font-weight-bold">Комментарии</h3>
+                    {% if comments %}
+                    {% include "blog/blog-comments-list.html" %}
+                    {% else %}
+                    <p>Пока никто не оставил комментарий к записи. Будьте первыми! </p>
+                    {% endif %}
+                    <div class="comment-form-wrap pt-5">
+                        <h3 class="mb-5">Оставить комментарий</h3>
+                        <form action="{% url 'add_comment_to_post' pk=post.pk %}" method="post" class="p-3 p-md-5 bg-light">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="name">Имя</label>
+                                <input type="text" class="form-control" id="author" name="author" placeholder="Имя">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Текст комментария</label>
+                                <textarea name="text" id="message" cols="30" rows="10"
+                                    placeholder="Введите текст комментария" class="form-control">
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn py-3 px-4 btn-primary"> Отправить </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% include "blog/blog-sidebar.html" %}
+        </div>
+    </section>
 {% endblock %}
