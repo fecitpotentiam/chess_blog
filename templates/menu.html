@@ -9,8 +9,8 @@
             <li class="{% if "qa" in request.resolver_match.url_name %}colorlib-active{% endif %}"><a href="/qa">Вопрос-Ответ</a></li>
         </ul>
         <p class="social">
-            <span><a href="#">VK</a></span>
-            <span><a href="#">Instagram</a></span>
+            <span><a href="{{ main_information.vk_link }}">VK</a></span>
+            <span><a href="{{ main_information.instagram_link }}">Instagram</a></span>
         </p>
     </nav>
 

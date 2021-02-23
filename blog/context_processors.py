@@ -1,6 +1,6 @@
-from django.db.models import Q, Count
+from django.db.models import Count
 
-from .models import Category, Post
+from .models import Category, MainInformation, Post
 
 
 def get_menu_info(request):
@@ -11,10 +11,12 @@ def get_menu_info(request):
     archived_posts = Post.objects.values('published_date__year').order_by(
         '-published_date__year'
     ).annotate(count=Count('id'))
+    main_information = MainInformation.objects.all().first()
 
     return {
         'latest_posts': latest_posts,
         'categories': categories,
         'posts_count_categories': posts_count_categories,
-        'archived_posts': archived_posts
+        'archived_posts': archived_posts,
+        'main_information': main_information
     }
