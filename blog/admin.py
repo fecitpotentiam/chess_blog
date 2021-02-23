@@ -36,11 +36,12 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class MainInformationAdmin(admin.ModelAdmin):
-  model = MainInformation
+    model = MainInformation
+    exclude = ('whatsapp_direct_link',)
 
-  def has_add_permission(self, request):
-    num_objects = self.model.objects.count()
-    return True if num_objects <= 1 else False
+    def has_add_permission(self, request):
+      num_objects = self.model.objects.count()
+      return True if num_objects <= 1 else False
 
 
 admin.site.register(Photo, PhotoAdmin)

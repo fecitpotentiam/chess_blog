@@ -6,8 +6,12 @@ from tinymce import models as tinymce_models
 
 
 def edit_video_link(sender, instance, **kwargs):
-    link = instance.link.replace('watch?v=', '/embed/')
+    link = instance.link.replace('watch?v=', 'embed/')
     instance.link = link
+
+
+def create_whatsapp_link(sender, instance, **kwargs):
+    instance.whatsapp_direct_link = 'https://wa.me/7' + instance.phone[1:]
 
 
 class Category(models.Model):
@@ -158,11 +162,13 @@ class VideoLesson(models.Model):
 class MainInformation(models.Model):
     main_page_text = tinymce_models.HTMLField(verbose_name='Текст на главной')
     address = models.CharField(max_length=256, verbose_name='Адрес', null=True)
-    phone = models.CharField(max_length=16, verbose_name='Телефон')
+    phone = models.CharField(max_length=16, verbose_name='Телефон (в формате 89..) без пробелов и скобок')
     email = models.CharField(max_length=32, verbose_name='Email')
     vk_link = models.CharField(max_length=80, verbose_name='Ссылка на ВК')
     instagram_link = models.CharField(max_length=80, verbose_name='Ссылка на Instagram')
     youtube_link = models.CharField(max_length=80, verbose_name='Ссылка на YouTube', null=True)
+    vk_direct_link = models.CharField(max_length=80, verbose_name='Ссылка на переписку ВК', null=True)
+    whatsapp_direct_link = models.CharField(max_length=80, verbose_name='Ссылка на переписку WhatsApp', null=True, blank=True)
 
     def __str__(self):
         return 'Основная информация'
@@ -173,3 +179,4 @@ class MainInformation(models.Model):
 
 
 signals.pre_save.connect(receiver=edit_video_link, sender=VideoLesson)
+signals.pre_save.connect(receiver=create_whatsapp_link, sender=MainInformation)

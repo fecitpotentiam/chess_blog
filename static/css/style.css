@@ -8754,6 +8754,10 @@ textarea.form-control {
    margin-bottom: 5rem;
 }
 
+.qa-block p #text {
+  text-indent: 2em;
+}
+
 .qa-block h3 {
   font-weight: bold;
    margin-bottom: 2rem;
@@ -8766,4 +8770,9 @@ textarea.form-control {
 
 .qa-content .subs-wrap .img .overlay {
   opacity: 10;
+}
+
+.order-book {
+  text-align: center;
+  padding-top: 1rem;
 }

@@ -190,5 +190,10 @@ def thanks(request):
     return render(request, 'thanks.html')
 
 
+def book(request):
+    return render(request, 'book.html')
+
+
 def contacts(request):
     return render(request, 'contact.html')
+

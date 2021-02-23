@@ -41,7 +41,7 @@ urlpatterns = [
     path('thanks', views.thanks, name='thanks'),
 
     path('videolessons', views.youtube_videos, name='youtube_videos'),
-
+    path('book', views.book, name='book'),
     path('contacts', views.contacts, name='contacts'),
 
     path('tinymce/', include('tinymce.urls')),

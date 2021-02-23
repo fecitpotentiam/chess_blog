@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <section class="ftco-section ftco-bread ftco-extend-mb">
+        <div class="container-fluid px-3 px-md-0">
+            <div class="row no-gutters slider-text justify-content-end align-items-center">
+                <div class="col-md-10 ftco-animate">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Главная</a></span> <span>Книга</span>
+                    </p>
+                    <h1 class="bread">Книга</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-services ftco-section ftco-no-pt">
+        <div class="container-fluid px-3 px-md-0">
+            <div class="row justify-content-end">
+                <div class="col-md-10">
+                    <div class="row mb-lg-5">
+
+                        <div class="col-md-6 d-flex ftco-animate">
+                                <div class="media block-6 services d-block">
+                                    <div class="media-body p-2 mt-3">
+                                        <div class="video-block">
+                                        <h2> Учимся у пешечки: учебник шахмат для начинающих </h2>
+                                        <p>Книга написана от лица Пешечки, которая приглашает ребёнка в увлекательный
+                                            мир шахмат и знакомит его с жителями и тайнами шахматного королевства.
+                                            Учебник предназначен для детей дошкольного и младшего школьного возраста.
+                                            В книге можно найти множество рисунков, оригинальных творческих заданий,
+                                            а также стихов и загадок собственного сочинения. А главное – 30 уроков,
+                                            последовательно раскрывающих юному шахматисту главные правила и
+                                            секреты игры.</p>
+                                        <p>Материал расположен по принципу «от простого – к сложному»: от ходов
+                                            фигур и базовых правил ребёнок приходит к изучению основных принципов
+                                            шахмат, простейших тактических приёмов и решению задач на мат.</p>
+
+                                        <p>
+                                            <span class="event-icon">
+                                                <img src="{% static '/images/icons/Wallet.png' %}" alt="">
+                                            </span>Цена: 300 рублей
+                                        </p>
+
+                                            <div class="order-book">
+
+                                        <h4>Если вы хотите заказать книгу, напишите мне в личные сообщения</h4>
+                                            <ul class="ftco-social mt-5">
+                                <li class="ftco-animate"><a href="{{ main_information.vk_direct_link }}"><span class="icon-vk"></span></a></li>
+                                <li class="ftco-animate"><a href="{{ main_information.instagram_link }}"><span class="icon-instagram"></span></a></li>
+                                 <li class="ftco-animate"><a href="{{ main_information.whatsapp_direct_link }}"><span class="icon-whatsapp"></span></a></li>
+                            </ul>
+                                            </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+
+                        <div class="col-md-6 d-flex ftco-animate">
+                                <div class="media block-6 services d-block">
+                                    <div class="media-body p-2 mt-3">
+                                        <div class="video-block">
+                                        <img src="{% static '/images/book_cover.jpg' %}" alt="">
+
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
