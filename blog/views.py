@@ -5,12 +5,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 # Create your views here.
-from .models import Post, Category, Event, Comment, PhotoAlbum, Photo, PostImage, QuestionAnswer
+from .models import Post, Category, Event, Comment, MainInformation, PhotoAlbum, Photo, PostImage, VideoLesson, QuestionAnswer
 from .forms import CommentForm, QuestionForm
 
 
 def index(request):
-    return render(request, 'about.html')
+    information = MainInformation.objects.all().first()
+    return render(request, 'about.html', {'information': information})
 
 
 def paginate(request, posts):
@@ -61,6 +62,16 @@ def post_detail(request, pk):
 
 def events_list(request):
     events = Event.objects.all().order_by('-datetime')
+    paginator = Paginator(events, 6)
+
+    page = request.GET.get('page')
+    try:
+        events = paginator.page(page)
+    except PageNotAnInteger:
+        events = paginator.page(1)
+    except EmptyPage:
+        events = paginator.page(paginator.num_pages)
+
     return render(request, 'events.html',
                   {'events': events})
 
@@ -103,6 +114,16 @@ def search(request):
 
 def get_albums(request):
     albums = PhotoAlbum.objects.all().order_by('-created_date')
+    paginator = Paginator(albums, 6)
+
+    page = request.GET.get('page')
+    try:
+        albums = paginator.page(page)
+    except PageNotAnInteger:
+        albums = paginator.page(1)
+    except EmptyPage:
+        albums = paginator.page(paginator.num_pages)
+
     return render(request, 'gallery.html', {'albums': albums})
 
 
@@ -113,7 +134,20 @@ def get_photos_in_album(request, pk):
 
 
 def youtube_videos(request):
-    return render(request, 'videolessons.html', {'test': 'test'})
+    videos = VideoLesson.objects.all().order_by('-published_date')
+    paginator = Paginator(videos, 6)
+
+    page = request.GET.get('page')
+    try:
+        videos = paginator.page(page)
+    except PageNotAnInteger:
+        videos = paginator.page(1)
+    except EmptyPage:
+        videos = paginator.page(paginator.num_pages)
+
+    print(videos)
+
+    return render(request, 'videolessons.html', {'videos': videos})
 
 
 def archived_posts(request, pk: int):
@@ -133,11 +167,26 @@ def create_question(request):
         if form.is_valid():
             question = form.save(commit=False)
             question.save()
-            return redirect('post_list')
+            return redirect('thanks')
     else:
         return redirect('post_list')
 
 
 def question_answer(request):
     questions = QuestionAnswer.objects.all().order_by('-published_date')
+
+    paginator = Paginator(questions, 10)
+
+    page = request.GET.get('page')
+    try:
+        questions = paginator.page(page)
+    except PageNotAnInteger:
+        questions = paginator.page(1)
+    except EmptyPage:
+        questions = paginator.page(paginator.num_pages)
+
     return render(request, 'question-answer.html', {'questions': questions})
+
+
+def thanks(request):
+    return render(request, 'thanks.html')

@@ -1,10 +1,13 @@
 from django.db import models
-
-from django.conf import settings
-from django.db import models
+from django.db.models import signals
 from django.utils import timezone
 
 from tinymce import models as tinymce_models
+
+
+def edit_video_link(sender, instance, **kwargs):
+    link = instance.link.replace('watch?v=', '/embed/')
+    instance.link = link
 
 
 class Category(models.Model):
@@ -56,6 +59,9 @@ class PostImage(models.Model):
     image = models.ImageField(upload_to='media')  # здесь укажите куда сохранять изображения
     post = models.ForeignKey(Post, related_name="post_image", on_delete=models.CASCADE)
     created_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return str(self.created_date)
 
     class Meta:
         verbose_name = 'Фото для поста'
@@ -112,6 +118,9 @@ class Photo(models.Model):
   album = models.ForeignKey(PhotoAlbum, related_name="photo", on_delete=models.CASCADE)
   created_date = models.DateTimeField(default=timezone.now)
 
+  def __str__(self):
+      return str(self.created_date)
+
   class Meta:
       verbose_name = 'Фото из альбома'
       verbose_name_plural = 'Фото из альбома'
@@ -124,6 +133,42 @@ class QuestionAnswer(models.Model):
     published_date = models.DateTimeField(default=timezone.now, verbose_name='Дата')
     published = models.BooleanField(default=False, verbose_name='Опубликовать')
 
+    def __str__(self):
+        return self.question
+
     class Meta:
         verbose_name = 'Вопрос-ответ'
         verbose_name_plural = 'Вопросы-ответы'
+
+
+class VideoLesson(models.Model):
+    title = models.CharField(max_length=80, verbose_name='Название')
+    description = models.CharField(max_length=256, verbose_name='Описание')
+    link = models.CharField(max_length=80, verbose_name='Ссылка на Youtube')
+    published_date = models.DateTimeField(default=timezone.now, verbose_name='Дата публикации')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Видеоурок с Youtube'
+        verbose_name_plural = 'Видеоуроки с YouTube'
+
+
+class MainInformation(models.Model):
+    main_page_text = tinymce_models.HTMLField(verbose_name='Текст на главной')
+    address = models.CharField(max_length=256, verbose_name='Адрес', null=True)
+    phone = models.CharField(max_length=16, verbose_name='Телефон')
+    email = models.CharField(max_length=32, verbose_name='Email')
+    vk_link = models.CharField(max_length=32, verbose_name='Ссылка на ВК')
+    instagram_link = models.CharField(max_length=32, verbose_name='Ссылка на Instagram')
+
+    def __str__(self):
+        return 'Основная информация'
+
+    class Meta:
+        verbose_name = 'Основная информация'
+        verbose_name_plural = 'Основная информация'
+
+
+signals.pre_save.connect(receiver=edit_video_link, sender=VideoLesson)

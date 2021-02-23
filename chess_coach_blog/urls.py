@@ -38,6 +38,7 @@ urlpatterns = [
     path('album/<int:pk>', views.get_photos_in_album, name='get_photos_in_album'),
 
     path('qa', views.question_answer, name='qa'),
+    path('thanks', views.thanks, name='thanks'),
 
     path('videolessons', views.youtube_videos, name='youtube_videos'),
 
