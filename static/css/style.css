@@ -7662,12 +7662,12 @@ h1, h2, h3, h4, h5,
     width: 50%; }
     @media (max-width: 767.98px) {
       .hero-wrap .author-info, .hero-wrap .author-image {
-        width: 30%; } }
+        width: 100%; } }
   .hero-wrap .author-info {
     overflow-y: scroll; }
     @media (max-width: 767.98px) {
       .hero-wrap .author-info {
-        width: 70%; } }
+        width: 100%; } }
   .hero-wrap .author-image .author-img {
     width: 100%; }
   .hero-wrap .text {
