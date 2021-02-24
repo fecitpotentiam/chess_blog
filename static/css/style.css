@@ -8779,8 +8779,3 @@ textarea.form-control {
   margin-left: 10px;
   margin-right: 10px;
 }
-
-@media (min-width: 768px) {
-  .about-content {
-    margin-left: 0; } }
-
