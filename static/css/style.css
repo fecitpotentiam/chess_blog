@@ -482,8 +482,8 @@ pre {
 
 .container-fluid {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
   margin-right: auto;
   margin-left: auto; }
 
@@ -513,8 +513,8 @@ pre {
   position: relative;
   width: 100%;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px; }
+  padding-right: 20px;
+  padding-left: 20px; }
 
 .col {
   -ms-flex-preferred-size: 0;
@@ -8714,6 +8714,7 @@ textarea.form-control {
   margin-bottom:0;
 }
 
+
 .photo-gallery .photos {
   padding-bottom:20px;
 }
@@ -8738,9 +8739,6 @@ textarea.form-control {
   text-indent: 2em;
 }
 
-.qa-content {
-  margin-left: 1rem;
-}
 .answer {
   margin-top: 10px;
   align-items: center;
@@ -8776,3 +8774,13 @@ textarea.form-control {
   text-align: center;
   padding-top: 1rem;
 }
+
+.about-content {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+  .about-content {
+    margin-left: 0; } }
+
